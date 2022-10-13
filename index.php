@@ -49,7 +49,7 @@ if (!class_exists('dv_live_wallpaper')) {
                     case 'image_count':
                         echo '<div>';
                         echo '<span class="button" style="margin-right:10px"> 0 </span>';
-                        echo '<span class="button button-primary " id="get_update_count_byID" >' . __( 'Re Count' ) . '</span>'; 
+                        echo '<span class="button button-primary" data-post="'.$post_id.'" id="get_update_count_byID" >' . __( 'Re Count' ) . '</span>'; 
                         echo '</div>';
                     break;
                 }
@@ -68,8 +68,14 @@ if (!class_exists('dv_live_wallpaper')) {
         private function include_files(){
 
             $list_file = [
+                'wexarama--admin-core'  => 'inc',
                 'wexarama--admin-ajax'  => 'inc',
             ];
+            if( isset( $list_file ) ){
+                foreach( $list_file as $file => $folder ){
+                    require __DIR__ . '\\' . $folder . '\\' . $file . '.php';
+                }
+            }
             
         }
 
