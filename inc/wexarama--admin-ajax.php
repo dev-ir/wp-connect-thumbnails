@@ -12,6 +12,7 @@ add_action('admin_footer', function () { ?>
 		};
 		jQuery.post(ajaxurl, data, function(response) {
             alert('Got this from the server: ' + response);
+            location.reload();
         });
     });
 
@@ -21,10 +22,14 @@ add_action('admin_footer', function () { ?>
 
 function get_update_counter_byID()
 {
-
     $post = $_POST;
 
-    echo($post['post_id']);
+    $core = new dv_live_core();
+    $response = $core->get_count_image_from_post( $post['post_id'] );
+
+    update_post_meta( $post['post_id'] ,'get_count_img' , $response );
+
+    echo $response;
 
     die();
 }
