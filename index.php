@@ -26,6 +26,7 @@ if (!class_exists('dv_live_wallpaper')) {
 
         public function __construct()
         {
+            $this->include_files();
             $this->admin();
             $this->add_count_image();
         }
@@ -46,7 +47,10 @@ if (!class_exists('dv_live_wallpaper')) {
                 switch ($column) {
 
                     case 'image_count':
-                        echo get_post_meta($post_id,'dv_image_count');
+                        echo '<div>';
+                        echo '<span class="button" style="margin-right:10px"> 0 </span>';
+                        echo '<span class="button button-primary " id="get_update_count_byID" >' . __( 'Re Count' ) . '</span>'; 
+                        echo '</div>';
                     break;
                 }
             }, 10, 2);
@@ -59,6 +63,14 @@ if (!class_exists('dv_live_wallpaper')) {
                 $instance = new dv_live_wallpaper;
             }
             return $instance;
+        }
+
+        private function include_files(){
+
+            $list_file = [
+                'wexarama--admin-ajax'  => 'inc',
+            ];
+            
         }
 
         public function admin()
