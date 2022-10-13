@@ -44,11 +44,14 @@ if (!class_exists('dv_live_wallpaper')) {
 
             // Add the data to the custom columns for the book post type:
             add_action('manage_post_posts_custom_column', function ($column, $post_id) {
+
+                $counter = !empty( get_post_meta($post_id,'get_count_img',true) ) ? get_post_meta($post_id,'get_count_img',true) : '0';
+
                 switch ($column) {
 
                     case 'image_count':
                         echo '<div>';
-                        echo '<span class="button" style="margin-right:10px"> 0 </span>';
+                        echo '<span class="button" style="margin-right:10px"> '. $counter .' </span>';
                         echo '<span class="button button-primary" data-post="'.$post_id.'" id="get_update_count_byID" >' . __( 'Re Count' ) . '</span>'; 
                         echo '</div>';
                     break;
