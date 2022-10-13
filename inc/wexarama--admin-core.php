@@ -12,11 +12,22 @@ if( ! class_exists('dv_live_core') ){
         }
 
         public function get_count_image_from_post( $post_id ){
-            if( !empty($post_id) ){
-
-                $string = get_the_content($post_id);
-
+            if( empty($post_id) ){
+                $post_id = 1;
             }
+            $string = get_post_field('post_content', $post_id);
+
+            preg_match_all('~<img.*?src=["\']+(.*?)["\']+~', $string, $urls);
+            $urls = $urls[1];
+
+            $count =  count($urls);
+
+            if( !empty( $count ) ){
+                return $count;
+            }else{
+                return 0;
+            }
+
         }
 
     }
