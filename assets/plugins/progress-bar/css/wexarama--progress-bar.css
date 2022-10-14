@@ -1,0 +1,21 @@
+.progress-bar {
+    background-color: #e0e0e0;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progress-bar-fill {
+    height: 35px;
+    background-color: #659cef;
+    border-radius: 3px;
+    transition: width 500ms ease-in-out;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+}
+.main-progress-bar{
+    width: 99%;
+}

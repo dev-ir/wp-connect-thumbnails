@@ -26,18 +26,28 @@ if (!class_exists('dv_live_wallpaper')) {
 
         public function __construct()
         {
+            $this->defined();
             $this->include_files();
             $this->admin();
             $this->add_count_image();
         }
 
+        public function defined(){
+            
+
+            if( !defined('wexaram__dir_url') ){
+                define( 'wexaram__dir_url' , plugin_dir_url( __FILE__ ) );
+              }
+              if( !defined('wexaram__dir_path') ){
+                define( 'wexaram__dir_path' , plugin_dir_path( __FILE__ ) );
+              }
+        }
         private function add_count_image()
         {
 
             // Add the custom columns to the book post type:
             add_filter('manage_post_posts_columns', function ($columns) {
                 $columns['image_count'] = __('Count image', 'your_text_domain');
-
                 return $columns;
             });
 
@@ -71,8 +81,10 @@ if (!class_exists('dv_live_wallpaper')) {
         private function include_files(){
 
             $list_file = [
-                'wexarama--admin-core'  => 'inc',
-                'wexarama--admin-ajax'  => 'inc',
+                'wexarama--admin-core'      => 'inc',
+                'wexarama--admin-ajax'      => 'inc',
+                'wexarama--admin-table'     => 'inc',
+                'wexarama--enqueue'         => 'inc',
             ];
             if( isset( $list_file ) ){
                 foreach( $list_file as $file => $folder ){
@@ -86,11 +98,11 @@ if (!class_exists('dv_live_wallpaper')) {
         {
             add_action('admin_menu', function () {
                 add_menu_page(
-                    __('DV Live Wallpaper', 'textdomain'),
-                    __('DV Live Wallpaper', 'textdomain'),
+                    __('Setting LW', 'textdomain'),
+                    __('Setting LW', 'textdomain'),
                     'manage_options',
                     'admin',
-                    9
+                    'dv_live_settings'
                 );
             });
         }

@@ -8,7 +8,11 @@ function dv_live_settings()
             <div class="button" id='get_update_counter'> Update Now </div>
         </div>
         <br>
-        <table class="wp-list-table widefat fixed striped table-view-list posts">
+        <div class="progress-bar">
+            <span class="progress-bar-fill" style="width: 0%;"></span>
+        </div>
+        <br>
+        <table class="wp-list-table widefat fixed striped table-view-list posts table-update-counter">
             <thead>
                 <tr>
                     <th scope="col">ردیف</th>
@@ -17,15 +21,7 @@ function dv_live_settings()
                     <th scope="col">وضعیت</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-
-            </tbody>
+            <tbody id='the-list'></tbody>
         </table>
     </div>
 
