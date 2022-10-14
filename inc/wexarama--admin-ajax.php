@@ -7,7 +7,7 @@ add_action('wp_ajax_get_update_counter', 'get_update_counter');
 add_action('admin_footer', function () { ?>
     <script>
         jQuery(document).ready(function($) {
-            jQuery('#get_update_count_byID').click(function() {
+            jQuery('.get_update_count_byID').click(function() {
                 var data = {
                     'action': 'get_update_counter_byID',
                     'post_id': jQuery(this).data('post'),
