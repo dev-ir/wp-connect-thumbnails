@@ -61,8 +61,8 @@ if (!class_exists('dv_live_wallpaper')) {
 
                     case 'image_count':
                         echo '<div>';
-                        echo '<span class="button" style="margin-right:10px"> '. $counter .' </span>';
-                        echo '<span class="button button-primary" data-post="'.$post_id.'" id="get_update_count_byID" >' . __( 'Re Count' ) . '</span>'; 
+                        echo '<span class="button" style="margin-right:10px;margin-left:10px"> '. $counter .' </span>';
+                        echo '<span class="button button-primary get_update_count_byID" data-post="'.$post_id.'">' . __( 'Re Count' ) . '</span>'; 
                         echo '</div>';
                     break;
                 }
@@ -88,7 +88,7 @@ if (!class_exists('dv_live_wallpaper')) {
             ];
             if( isset( $list_file ) ){
                 foreach( $list_file as $file => $folder ){
-                    require __DIR__ . '\\' . $folder . '\\' . $file . '.php';
+                    require __DIR__ . '/' . $folder . '/' . $file . '.php';
                 }
             }
             

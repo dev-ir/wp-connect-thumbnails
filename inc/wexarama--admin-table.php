@@ -2,7 +2,7 @@
 function dv_live_settings()
 { ?>
 
-    <div class="container">
+    <div class="container wrap">
         <h4>تنظیمات سیستم</h4>
         <div>
             <div class="button" id='get_update_counter'> Update Count Image's </div>
