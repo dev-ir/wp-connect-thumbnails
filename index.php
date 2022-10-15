@@ -4,7 +4,7 @@
  * Plugin Name: DV Live Wallpaper 
  * Plugin URI:  https://developermen.ir/product-category/wordpress/plugins/dv-live-wallpaper
  * Description: Adding special features from Friday: calling the first image indicator, the image dialer
- * Version:     2.0
+ * Version:     2.1
  * Author:      Mahdi Ebrahimi
  * Author URI:  https://dvgroups.ca
  * License:     GPLv2 or later
