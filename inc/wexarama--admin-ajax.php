@@ -40,7 +40,7 @@ add_action('admin_footer', function () { ?>
 
             function get_update_thumbnail() {
                 var data = {
-                    'action': 'get_update_counter',
+                    'action': 'get_update_thumbnail',
                     'nonce': true,
                 };
                 jQuery.post(ajaxurl, data, function(response) {
@@ -72,6 +72,7 @@ add_action('admin_footer', function () { ?>
 
 function get_update_counter()
 {
+    
     if (get_option('get_temp_db') == false) {
         $posts = get_posts([
             'post_type'     => 'post',
@@ -114,6 +115,7 @@ function get_update_counter_byID()
 
 function get_update_thumbnail()
 {
+
     $core = new dv_live_core();
     if (get_option('get_temp_db_thumbnail') == false) {
         $list_posts = query_posts(
@@ -136,7 +138,12 @@ function get_update_thumbnail()
     }
 
     $fetch      = get_option('get_temp_db_thumbnail');
+    
+    
+    
+    
     $post_id    = $fetch[0];
+    #$post_id    = 101596;
 
     $string = get_post_field('post_content', $post_id);
 
@@ -145,6 +152,7 @@ function get_update_thumbnail()
 
 
     $image_id = $core->wp_insert_attachment_from_url($url,$post_id);
+
     update_post_meta($post_id,'_thumbnail_id',$image_id);
     update_post_meta($post_id,'_thumbnail_id_update',true);
 
